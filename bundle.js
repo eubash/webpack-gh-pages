@@ -1,0 +1,1 @@
+(()=>{function e(){document.querySelector("#app").innerHTML=window.location.href}document.body.addEventListener("click",(n=>{n.target.matches("a")&&e()})),e()})();
