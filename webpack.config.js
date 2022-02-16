@@ -10,10 +10,12 @@ module.exports = {
     compress: true,
     port: 9000,
     hot: true,
+    historyApiFallback: true,
   },
   output: {
     filename: "bundle.js",
     path: resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   entry: "./src/index.ts",
   mode: NODE_ENV,
