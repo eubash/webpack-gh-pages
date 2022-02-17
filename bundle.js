@@ -1,1 +1,1 @@
-(()=>{function e(){document.querySelector("#app").innerHTML=window.location.href}document.body.addEventListener("click",(n=>{n.target.matches("a")&&e()})),e()})();
+(()=>{function t(){document.querySelector("#app").innerHTML=window.location.href}document.body.addEventListener("click",(e=>{if(e.target.matches("a")){e.preventDefault();const r=e.target.getAttribute("href");if(!window.history)throw new Error("Sorry, youer browser not support history api");window.history.pushState({},"",r),t()}})),t()})();
