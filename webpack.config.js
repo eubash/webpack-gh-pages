@@ -9,16 +9,18 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 9000,
-    hot: true,
+    historyApiFallback: true,
+    hot: true
   },
   output: {
     filename: "bundle.js",
     path: resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   entry: "./src/index.ts",
   mode: NODE_ENV,
   resolve: {
-    extensions: [".js", ".ts"],
+    extensions: [".js", ".ts"]
   },
   module: {
     rules: [
@@ -28,18 +30,14 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-typescript"],
-          },
-        },
-      },
-    ],
+          }
+        }
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "public/index.html",
-    }),
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      filename: "404.html",
-    }),
-  ],
+      template: "public/index.html"
+    })
+  ]
 };
