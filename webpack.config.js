@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const NODE_ENV = process.env.NODE_ENV;
 
+const PREFIX = NODE_ENV === "production" ? "webpack-gh-pages" : "/";
+
 module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -15,7 +17,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: resolve(__dirname, "dist"),
-    publicPath: "/",
+    publicPath: PREFIX,
   },
   entry: "./src/index.ts",
   mode: NODE_ENV,
