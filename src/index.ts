@@ -1,18 +1,25 @@
-function render() {
-  document.querySelector("#app").innerHTML = window.location.href;
+function render(hash?: string) {
+  const href = window.location.href;
+
+  document.querySelector("#app")!.textContent = hash
+      ? href.includes("#")
+          ? href.replace(/#.*/, hash)
+          : href + hash
+      : window.location.href;
 }
 
-document.body.addEventListener("click", (ev) => { 
- if ((ev.target as HTMLElement).matches("a")) {
-   ev.preventDefault();
-   const url = (ev.target as HTMLElement).getAttribute("href");
-   if (window.history) {
-     window.history.pushState({}, "", url);
-   } else {
-     throw new Error("Sorry, youer browser not support history api");
-   }
-        render(); 
- } 
+// if (PRODUCTION) {
+//   document.querySelectorAll("a").forEach((link) => {
+//     link.href = PREFIX + link.pathname;
+//   });
+// }
+
+document.body.addEventListener("click", (ev) => {
+  if ((ev.target as HTMLElement).matches("a")) {
+    const hash = (ev.target as HTMLAnchorElement).hash;
+
+    render(hash);
+  }
 });
 
 render();
