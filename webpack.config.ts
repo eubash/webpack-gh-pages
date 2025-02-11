@@ -38,10 +38,10 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
     }),
-    // new HtmlWebpackPlugin({
-    //   template: "public/index.html",
-    //   filename: "404.html",
-    // }),
+    new HtmlWebpackPlugin({
+      template: "public/index.html",
+      filename: "404.html",
+    }),
     // new webpack.DefinePlugin({
     //   PRODUCTION: NODE_ENV == "production",
     //   PREFIX: JSON.stringify(PREFIX),
@@ -51,7 +51,7 @@ const config: webpack.Configuration = {
     compress: true,
     port: 9000,
     watchFiles: ["public/index.html"],
-    // historyApiFallback: true,
+    historyApiFallback: true,
   },
 };
 

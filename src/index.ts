@@ -16,9 +16,13 @@ function render(hash?: string) {
 
 document.body.addEventListener("click", (ev) => {
   if ((ev.target as HTMLElement).matches("a")) {
-    const hash = (ev.target as HTMLAnchorElement).hash;
-
-    render(hash);
+    ev.preventDefault();
+    const href = (ev.target as HTMLAnchorElement).href;
+    window.history.pushState({}, "", href);
+    render();
+    // const hash = (ev.target as HTMLAnchorElement).hash;
+    //
+    // render(hash);
   }
 });
 
