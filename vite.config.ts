@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 //We need to use loadEnv because vite.config is evaluated before vite loads the .env file and exposes the variables
 const env = loadEnv(process.env.NODE_ENV as string, process.cwd(), 'VITE_');
@@ -17,7 +18,13 @@ export default defineConfig({
   },
 
   plugins: [
-    // You can add any plugins here as required (like for React, Vue, etc.)
+    createHtmlPlugin({
+      inject: {
+        data: {
+          VITE_REPO_NAME: env.VITE_PREFIX,
+        }
+      },
+    }),
   ],
 });
 
