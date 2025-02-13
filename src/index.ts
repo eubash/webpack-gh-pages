@@ -8,9 +8,9 @@ function render(hash?: string) {
       : window.location.href;
 }
 
-if (PRODUCTION) {
+if (import.meta.env.MODE === "production") {
   document.querySelectorAll("a").forEach((link) => {
-    link.href = PREFIX + link.pathname;
+    link.href = import.meta.env.VITE_PREFIX + link.pathname;
   });
 }
 
