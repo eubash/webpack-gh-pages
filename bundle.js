@@ -1,0 +1,1 @@
+document.body.addEventListener("click",(e=>{e.target.matches("a")&&function(e){const t=window.location.href;document.querySelector("#app").textContent=e?t.includes("#")?t.replace(/#.*/,e):t+e:window.location.href}(e.target.hash)}));
