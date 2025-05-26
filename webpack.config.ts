@@ -18,7 +18,7 @@ const config: webpack.Configuration = {
     environment: {
       arrowFunction: false,
     },
-    publicPath: NODE_ENV === "production" ? PREFIX : '/',
+    // publicPath: NODE_ENV === "production" ? PREFIX : '/',
   },
   resolve: {
     extensions: [".js", ".ts"],
@@ -40,20 +40,20 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
     }),
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      filename: "404.html",
-    }),
-    new webpack.DefinePlugin({
-      PRODUCTION: NODE_ENV == "production",
-      PREFIX: JSON.stringify(PREFIX),
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "public/index.html",
+    //   filename: "404.html",
+    // }),
+    // new webpack.DefinePlugin({
+    //   PRODUCTION: NODE_ENV == "production",
+    //   PREFIX: JSON.stringify(PREFIX),
+    // }),
   ],
   devServer: {
     compress: true,
     port: 9000,
     watchFiles: ["public/index.html"],
-    historyApiFallback: true,
+    // historyApiFallback: true,
   },
 };
 
