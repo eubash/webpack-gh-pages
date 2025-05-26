@@ -44,10 +44,10 @@ const config: webpack.Configuration = {
       template: "public/index.html",
       filename: "404.html",
     }),
-    // new webpack.DefinePlugin({
-    //   PRODUCTION: NODE_ENV == "production",
-    //   PREFIX: JSON.stringify(PREFIX),
-    // }),
+    new webpack.DefinePlugin({
+      PRODUCTION: NODE_ENV == "production",
+      PREFIX: JSON.stringify(PREFIX),
+    }),
   ],
   devServer: {
     compress: true,
